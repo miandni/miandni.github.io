@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>About Mini</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+	<link rel="shortcut icon" href="./img/favicon.ico">
+	<!-- 引入框架样式 -->
+	<link href='./lib/layui/css/layui.css' rel="stylesheet" />
+	<!-- 子栏目的公共样式 -->
+	<link href='./css/child.css' rel='stylesheet'/>
+	<!-- 单独的样式 -->
+    <link href='./css/about.css' rel='stylesheet' />
+	<!-- 引入框架js -->
+	<script src='./lib/layui/layui.js'></script>
+	<!--引入jquery-->
+	<script src='./js/jquery.min.js'></script>
+	
+	<script src='./js/comm.js'></script>
+	
+</head>
+<body>
+	<!--导航-->
+	<div id='top'>		
+		<iframe align="center" width="100%" height="85px" src="top.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">	
+		</iframe>	
+	</div>
+	<!-- banner -->
+	<div class='banner'>
+		<div><img src='./img/abanner.png'></div>
+		<div>
+			<div>ABOUT MI&NI</div>
+			<div>
+		</div></div>
+	</div>
+	
+	<!-- 选项卡 -->
+	<div class='tab'>
+		<div onclick='tab("about")'>Company Profile</div>
+		<div onclick='tab("certificates")'>Certificates</div>
+		<div onclick='tab("history")'>History</div>
+		<div onclick='tab("business")'>Business</div>
+		<div onclick='tab("contact")'>Contact us</div>
+	</div>
+	
+	<div class='tab-title'>
+		<div>Company Profile</div>
+	</div>
+	<!-- 内容 -->
+	<div class='tab-content'>
+		<p><img src='./img/bike/we-OGoN0T4e0rWE5ri8uIw.jpg' /></p>
+		<p>Mini Technology(Shenzhen) Co.,Ltd. (hereinafter refered to as "Mini"or "MI&NI") was established in September 2018, is a smart hardware + IOT sulutions provider. The headquarter is located in Shenzhen, Guangdong Province. We devote ourselves to providing our clients with excellent services, supporting their global success in the marketplace and ultimately becoming the most trustworthy of their business partner.</p>
+	</div>
+	
+	<!-- 页脚 -->
+	<div id='footer'>
+		<iframe align="center" width="100%" height='280px' src="footer.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">
+		</iframe>
+	</div>
+</body>
+</html>
