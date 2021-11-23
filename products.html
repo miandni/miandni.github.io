@@ -4,12 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>MI&NI Tech</title>
+	<title>Products</title>
 	<link rel="shortcut icon" href="./img/favicon.ico">
 	<!-- 引入框架样式 -->
 	<link href='./lib/layui/css/layui.css' rel="stylesheet" />
 	<!-- 单独的样式 -->
-    <link href='./css/pcontent.css' rel='stylesheet' />
+    <link href='./css/product.css' rel='stylesheet' />
 	<!-- 引入框架js -->
 	<script src='./lib/layui/layui.js'></script>
 	<!--引入jquery-->
@@ -36,8 +36,7 @@
 	<div class='tab'>
 		<div>
 			<div onclick='tab("index")'><img src='./img/home.png' /> Home</div>
-		    <div> &gt;&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:;' onclick='tab("products","sd")'>products</a></div>
-			<div> &gt;&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:;' onclick='tab("products","sd")'>显示屏</a></div>
+		    <div> &gt;&nbsp;&nbsp;&nbsp;&nbsp;products</div>
 		</div>
 	</div>
 	
@@ -65,17 +64,36 @@
 		   </div>
 		   <div>
 			   <div class='navname'>ALL PRODUCT</div>
-			   <div class='bickcontent'>
-				  <p>
-					  <img src='img/lcd/we-OGoN0T4e0rWE5ri8uIw.jpg' />
-				  </p>
-				  
-				  <p>There is one kind of beauty, is still kept in after a long time , when the time went on , it only leave us a memory beyond of time and space, which has become an indelible impression symbol. </p>
+			   <div id='product'>
+				   <!-- <div>
+					   <div><img src='img/lcd/lcd-tft.png' /></div>
+					   <div>
+						   <div>chanp1</div>
+						   <div>more</div>
+					   </div>
+				   </div>
+				   
+				   <div>
+					   <div><img src='img/lcd/lcd-tft.png' /></div>
+					   <div>
+						   <div>chanp1</div>
+						   <div>more</div>
+					   </div>
+				   </div>
+				   
+				   <div>
+					   <div><img src='img/lcd/lcd-tft.png' /></div>
+					   <div>
+						   <div>chanp1</div>
+						   <div>more</div>
+					   </div>
+				   </div>
+				   -->
 				   
 			   </div>
 		       
-			   <!-- 下一篇 -->
-			   <div>Next article:<a href=''>WiFi LCD</a></div>
+			   <!-- 分页 -->
+			   <div id="demo2-1"></div>
 		   </div>
 	   </div>
 	</div>
@@ -112,7 +130,50 @@
 			});
 		})
 		
-	
+		layui.use(['laypage', 'layer'], function(){
+		  var laypage = layui.laypage
+		  ,layer = layui.layer;
+		  
+		  var data = [{
+			  'pic' : './img/lcd/tft-lcd01.jpg',
+			  'title' : 'product1',
+		  }];
+		 
+		 laypage.render({
+		      elem: 'demo2-1'
+		      ,count: data.length
+		      ,theme: '#f7941d'
+			  ,limit:9
+			  ,jump: function(obj){
+				  //模拟渲染
+				  document.getElementById('product').innerHTML = function(){
+					var arr=[]
+					,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+					layui.each(thisData, function(index, item){
+					//  arr.push('<li>'+ item +'</li>');
+					  
+					  var str = '';
+					  str += '<div onclick="content()">';
+			
+						   str += '<div><img src="'+item['pic']+'" /></div>';
+						   str += '<div>';
+							   str += '<div>'+item["title"]+'</div>';
+							   str += '<div>more</div>';
+						   str += '</div>';
+				
+					  str += "</div>";
+					  		
+					   arr.push(str)
+					});
+					
+					
+					
+					return arr.join('');
+				  }();
+				}
+		  });
+	    });
+		
 		function content(){
 			// window.location.href='pcontent.html?id='+id;
 			window.location.href='pcontent.html';
